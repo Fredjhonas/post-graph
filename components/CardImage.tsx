@@ -17,12 +17,12 @@ export default function CardImage({
   buttonText,
 }: CardImageProps) {
   return (
-    <div className="bg-gray-100 p-14 rounded-lg justify-start items-center flex flex-col">
-      <h3 className="text-lg text-center font-semibold">{title}</h3>
+    <div className="bg-gray-100 p-10 rounded-xl justify-start items-center flex flex-col">
+      <h3 className="text-lg text-center font-semibold h-24">{title}</h3>
       <Image
         src={source}
-        width={200}
-        height={200}
+        width={300}
+        height={300}
         alt="image card"
         className="rounded-lg m-4"
         priority={true}
