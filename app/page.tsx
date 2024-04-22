@@ -1,6 +1,6 @@
 'use client';
 
-import UserList from '@/components/UserList';
+import UserItem from '@/components/UserItem';
 import { useUsers } from '@/hooks/useUsers';
 
 export default function Home() {
@@ -22,7 +22,14 @@ export default function Home() {
         </div>
       ) : (
         <div className="lg:w-full sm:w-screen">
-          <UserList users={users} />
+          <ul
+            role="list"
+            className="divide-y divide-gray-300 bg-gradient-to-b from-blue-50 p-10 rounded-lg"
+          >
+            {users.map((user) => (
+              <UserItem key={user.id} user={user} />
+            ))}
+          </ul>
         </div>
       )}
     </main>
