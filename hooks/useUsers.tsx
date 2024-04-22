@@ -18,5 +18,5 @@ export const useUsers = () => {
     }
   }, [data]);
 
-  return { users, setUsers, refetch, isLoading, isFetching, isError };
+  return { users, refetch, isLoading, isFetching, isError };
 };

@@ -8,3 +8,12 @@ export const fetchUsers = async () => {
       throw error.response;
     });
 };
+
+export const fetchUserAlbums = async (userId: number) => {
+  return client
+    .get(`/users/${userId}/albums`)
+    .then((res) => res.data)
+    .catch((error) => {
+      throw error.response;
+    });
+};

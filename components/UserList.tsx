@@ -1,5 +1,6 @@
 import { User } from '@/api/types';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type UserListProps = {
   users: User[];
@@ -46,9 +47,11 @@ export default function UserList({ users }: UserListProps) {
               <span className="font-semibold">Empresa: </span> {user.company.name}
             </p>
             <div className="mt-1 flex gap-x-6 items-center">
-              <button className="mt-2 text-sm leading-5 text-blue-600 hover:text-blue-500 bg-blue-100 hover:bg-blue-50 px-2 py-1 rounded-md">
-                Ver álbumes
-              </button>
+              <Link href={`/user/${user.id}/albums`}>
+                <button className="mt-2 text-sm leading-5 text-blue-600 hover:text-blue-500 bg-blue-100 hover:bg-blue-50 px-2 py-1 rounded-md">
+                  Ver álbumes
+                </button>
+              </Link>
               <button className="mt-2 text-sm leading-5 text-red-600 hover:text-red-500  bg-red-100 hover:bg-red-50 px-2 py-1 rounded-md">
                 Ver gráfico de posteos
               </button>
