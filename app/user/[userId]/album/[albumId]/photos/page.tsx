@@ -4,6 +4,7 @@ import CardImage from '@/components/CardImage';
 import { usePhotos } from '@/hooks/usePhotos';
 import { useParams } from 'next/navigation';
 import { useAlbums } from '@/hooks/useAlbums';
+import Link from 'next/link';
 
 export default function Photos() {
   const albumId = Number(useParams().albumId);
@@ -14,11 +15,17 @@ export default function Photos() {
 
   return (
     <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
+      <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white mr-6">
+        <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
+        <Link href={`/user/${userId}/albums`} className="text-white mr-6">
+          Regresar
+        </Link>
+      </nav>
       <div className="lg:w-full sm:w-screen items-center justify-center font-mono text-sm flex-col  p-14">
-        <h2 className="text-2xl font-bold leading-7 text-gray-800 text-center">Post Graph</h2>
-        <h5 className="text-sm font-semibold leading-6 text-gray-500 text-center">
+        <h2 className="text-2xl font-bold leading-7 text-gray-800 text-center">
+          {' '}
           Lista de fotos de {album?.title}
-        </h5>
+        </h2>
       </div>
       <div className="lg:w-full sm:w-screen">
         {isLoading ? (

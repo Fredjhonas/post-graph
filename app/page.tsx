@@ -8,6 +8,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
+      <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white">
+        <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
+      </nav>
       <div className="lg:w-full sm:w-screen items-center justify-center font-mono text-sm flex-col  p-14">
         <h2 className="text-2xl font-bold leading-7 text-gray-800 text-center">
           Bienvenido a Post Graph
