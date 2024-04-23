@@ -47,9 +47,11 @@ const UserItem = ({ user }: Props) => {
               Ver álbumes
             </button>
           </Link>
-          <button className="mt-2 text-sm leading-5 text-red-600 hover:text-red-500  bg-red-100 hover:bg-red-50 px-2 py-1 rounded-md">
-            Ver gráfico de posteos
-          </button>
+          <Link href={`/user/${user.id}/graphic`}>
+            <button className="mt-2 text-sm leading-5 text-red-600 hover:text-red-500  bg-red-100 hover:bg-red-50 px-2 py-1 rounded-md">
+              Ver gráfico de posteos
+            </button>
+          </Link>
         </div>
       </div>
     </li>

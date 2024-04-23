@@ -41,3 +41,10 @@ export interface Photo {
   url: string;
   thumbnailUrl: string;
 }
+
+export interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}

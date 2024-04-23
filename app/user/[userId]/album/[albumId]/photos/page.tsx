@@ -16,7 +16,9 @@ export default function Photos() {
   return (
     <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
       <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white mr-6">
-        <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
+        <Link href={'/'}>
+          <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
+        </Link>
         <Link href={`/user/${userId}/albums`} className="text-white mr-6">
           Regresar
         </Link>

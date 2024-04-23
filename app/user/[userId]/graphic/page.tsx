@@ -1,20 +1,20 @@
 'use client';
 
-import CardImage from '@/components/CardImage';
-import { useAlbums } from '@/hooks/useAlbums';
-import { useUsers } from '@/hooks/useUsers';
 import Link from 'next/link';
+import { usePosts } from '@/hooks/usePosts';
 import { useParams } from 'next/navigation';
+import { useUsers } from '@/hooks/useUsers';
+import GraphicPost from '@/components/GraphicPost';
 
-export default function Albumes() {
+export default function Graphic() {
   const userId = Number(useParams().userId);
-  const { albums, isLoading } = useAlbums(userId);
+  const { posts, isLoading } = usePosts(userId);
   const { users } = useUsers();
   const user = users.find((user) => user.id === userId);
 
   return (
     <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
-      <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white">
+      <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white mr-6">
         <Link href={'/'}>
           <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
         </Link>
@@ -24,7 +24,8 @@ export default function Albumes() {
       </nav>
       <div className="lg:w-full sm:w-screen items-center justify-center font-mono text-sm flex-col  p-14">
         <h2 className="text-2xl font-bold leading-7 text-gray-800 text-center">
-          Lista de albumes de {user?.name}
+          {' '}
+          Publicaciones de {user?.name}
         </h2>
       </div>
       <div className="lg:w-full sm:w-screen">
@@ -33,17 +34,8 @@ export default function Albumes() {
             <p className="text-center text-gray-800">Cargando...</p>
           </div>
         ) : (
-          <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-6">
-            {albums.map((album) => (
-              <CardImage
-                key={album.id}
-                title={album.title}
-                source="https://picsum.photos/200"
-                showButton
-                route={`/user/${userId}/album/${album.id}/photos`}
-                buttonText="Ver fotos"
-              />
-            ))}
+          <div className="flex justify-center items-center mt-6">
+            <GraphicPost postCount={posts.length} />
           </div>
         )}
       </div>
