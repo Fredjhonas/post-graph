@@ -5,6 +5,7 @@ import { usePhotos } from '@/hooks/usePhotos';
 import { useParams } from 'next/navigation';
 import { useAlbums } from '@/hooks/useAlbums';
 import Link from 'next/link';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function Photos() {
   const albumId = Number(useParams().albumId);
@@ -32,7 +33,7 @@ export default function Photos() {
       <div className="lg:w-full sm:w-screen">
         {isLoading ? (
           <div className="flex justify-center items-center h-screen">
-            <p className="text-center text-gray-800">Cargando...</p>
+            <LoadingSpinner />
           </div>
         ) : (
           <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-6">

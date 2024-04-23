@@ -1,6 +1,7 @@
 'use client';
 
 import CardImage from '@/components/CardImage';
+import LoadingSpinner from '@/components/LoadingSpinner';
 import { useAlbums } from '@/hooks/useAlbums';
 import { useUsers } from '@/hooks/useUsers';
 import Link from 'next/link';
@@ -30,7 +31,7 @@ export default function Albumes() {
       <div className="lg:w-full sm:w-screen">
         {isLoading ? (
           <div className="flex justify-center items-center h-screen">
-            <p className="text-center text-gray-800">Cargando...</p>
+            <LoadingSpinner />
           </div>
         ) : (
           <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-6">

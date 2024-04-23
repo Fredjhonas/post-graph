@@ -61,8 +61,8 @@ export default function GraphicPost({ postCount }: Props) {
       }}
       series={series}
       type="bar"
-      height={300}
-      width={500}
+      height={350}
+      width={'100%'}
     />
   );
 }

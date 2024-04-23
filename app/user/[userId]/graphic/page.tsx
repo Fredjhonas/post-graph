@@ -5,6 +5,7 @@ import { usePosts } from '@/hooks/usePosts';
 import { useParams } from 'next/navigation';
 import { useUsers } from '@/hooks/useUsers';
 import GraphicPost from '@/components/GraphicPost';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function Graphic() {
   const userId = Number(useParams().userId);
@@ -14,7 +15,7 @@ export default function Graphic() {
 
   return (
     <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
-      <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white mr-6">
+      <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white">
         <Link href={'/'}>
           <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
         </Link>
@@ -31,7 +32,7 @@ export default function Graphic() {
       <div className="lg:w-full sm:w-screen">
         {isLoading ? (
           <div className="flex justify-center items-center h-screen">
-            <p className="text-center text-gray-800">Cargando...</p>
+            <LoadingSpinner />
           </div>
         ) : (
           <div className="flex justify-center items-center mt-6">

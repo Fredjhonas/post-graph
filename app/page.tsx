@@ -1,5 +1,6 @@
 'use client';
 
+import LoadingSpinner from '@/components/LoadingSpinner';
 import UserItem from '@/components/UserItem';
 import { useUsers } from '@/hooks/useUsers';
 
@@ -21,7 +22,7 @@ export default function Home() {
       </div>
       {isLoading ? (
         <div className="lg:w-full sm:w-screen flex justify-center items-center h-screen">
-          <p className="text-center text-gray-800">Cargando...</p>
+          <LoadingSpinner />
         </div>
       ) : (
         <div className="lg:w-full sm:w-screen">
