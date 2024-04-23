@@ -1,11 +1,15 @@
 'use client';
 
+import ExcelExportBtn from '@/components/ExcelExportBtn';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import UserItem from '@/components/UserItem';
 import { useUsers } from '@/hooks/useUsers';
+import { formatUsers } from '@/utils/FormatUsers';
 
 export default function Home() {
   const { users, isLoading } = useUsers();
+
+  const usersFormatted = formatUsers(users);
 
   return (
     <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
@@ -30,6 +34,9 @@ export default function Home() {
             role="list"
             className="divide-y divide-gray-300 bg-gradient-to-b from-blue-50 p-10 rounded-lg"
           >
+            <div className="flex items-center justify-end">
+              <ExcelExportBtn data={usersFormatted} fileName="Usuarios" />
+            </div>
             {users.map((user) => (
               <UserItem key={user.id} user={user} />
             ))}
