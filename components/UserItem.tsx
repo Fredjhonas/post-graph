@@ -21,7 +21,13 @@ const UserItem = ({ user }: Props) => {
         />
         <div className="min-w-0 flex-auto">
           <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
-          <p className="mt-1 truncate text-xs leading-5 text-gray-500">{user.email}</p>
+          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+            {' '}
+            <span className="font-semibold">Email:</span> {user.email}
+          </p>
+          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+            <span className="font-semibold">Website:</span> {user.website}
+          </p>
           <div className="mt-1 flex items-center gap-x-1.5">
             <div className="flex-none rounded-full bg-emerald-500/20 p-1">
               <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -45,11 +51,6 @@ const UserItem = ({ user }: Props) => {
           <Link href={`/user/${user.id}/albums`}>
             <button className="mt-2 text-sm leading-5 text-blue-600 hover:text-blue-500 bg-blue-100 hover:bg-blue-50 px-2 py-1 rounded-md">
               Ver álbumes
-            </button>
-          </Link>
-          <Link href={`/user/${user.id}/graphic`}>
-            <button className="mt-2 text-sm leading-5 text-red-600 hover:text-red-500  bg-red-100 hover:bg-red-50 px-2 py-1 rounded-md">
-              Ver gráfico de posteos
             </button>
           </Link>
         </div>

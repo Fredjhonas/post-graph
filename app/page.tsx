@@ -5,6 +5,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import UserItem from '@/components/UserItem';
 import { useUsers } from '@/hooks/useUsers';
 import { formatUsers } from '@/utils/FormatUsers';
+import Link from 'next/link';
 
 export default function Home() {
   const { users, isLoading } = useUsers();
@@ -35,6 +36,11 @@ export default function Home() {
             className="divide-y divide-gray-300 bg-gradient-to-b from-blue-50 p-10 rounded-lg"
           >
             <div className="flex items-center justify-end">
+              <Link href={`/graphic`}>
+                <button className="leading-5 text-red-600 hover:text-red-500  bg-red-100 hover:bg-red-50 px-4 py-2.5 mb-4 rounded">
+                  Ver gráfico de posteos
+                </button>
+              </Link>
               <ExcelExportBtn data={usersFormatted} fileName="Usuarios" />
             </div>
             {users.map((user) => (

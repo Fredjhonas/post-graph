@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Post } from '../api/types';
-import { getPosts } from '@/api/resquests/post';
+import { getPostsByUserId } from '@/api/resquests/post';
 
-export const usePosts = () => {
+export const usePostUser = (userId: number) => {
   const [posts, setPosts] = useState<Post[]>([]);
   const { data, refetch, isLoading, isFetching, isError } = useQuery({
     queryKey: ['posts'],
-    queryFn: () => getPosts(),
+    queryFn: () => getPostsByUserId(userId),
   });
 
   useEffect(() => {

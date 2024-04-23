@@ -3,49 +3,66 @@ import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 type Props = {
-  postCount: number;
+  dataUsers: any;
 };
 
-export default function GraphicPost({ postCount }: Props) {
+export default function GraphicPost({ dataUsers }: Props) {
   const series = [
     {
-      name: 'POSTEOS',
-      type: 'column',
-      data: [postCount],
+      data: dataUsers.map((user: any) => user.posts),
     },
   ];
-
   const options = {
-    grid: {
-      strokeDashArray: 6,
-    },
     chart: {
       toolbar: {
         show: false,
       },
-      stacked: true,
     },
+    plotOptions: {
+      bar: {
+        barHeight: '100%',
+        distributed: true,
+        horizontal: true,
+        dataLabels: {
+          position: 'bottom',
+        },
+      },
+    },
+    colors: [
+      '#33b2df',
+      '#546E7A',
+      '#d4526e',
+      '#13d8aa',
+      '#A5978B',
+      '#2b908f',
+      '#f9a3a4',
+      '#90ee7e',
+      '#f48024',
+      '#69d2e7',
+    ],
     stroke: {
-      width: [2],
+      width: 1,
+      colors: ['#fff'],
     },
-    dataLabels: {
-      enabled: true,
-      enabledOnSeries: [2],
-    },
-    labels: ['POSTEOS'],
     xaxis: {
+      categories: dataUsers.map((user: any) => user.username),
+    },
+    yaxis: {
       labels: {
         show: true,
       },
     },
-    colors: ['#DB8E6B'],
-    markers: {
-      size: 4,
-      strokeWidth: 0,
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: '30%',
+    tooltip: {
+      theme: 'dark',
+      x: {
+        show: false,
+      },
+      y: {
+        title: {
+          formatter: function () {
+            return '';
+          },
+        },
       },
     },
   };
@@ -55,13 +72,27 @@ export default function GraphicPost({ postCount }: Props) {
       options={{
         ...options,
         title: {
-          text: 'CANTIDAD DE POSTEOS',
+          text: 'CANTIDAD DE POSTEOS POR USUARIO',
           align: 'center',
+        },
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#000'],
+          },
+          formatter: function (val) {
+            return `${val}`;
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: false,
+          },
         },
       }}
       series={series}
       type="bar"
-      height={350}
+      height={380}
       width={'100%'}
     />
   );
