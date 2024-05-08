@@ -46,6 +46,14 @@ docker compose build
 docker compose up post-graph
 ```
 
+## Testing
+
+Run the test suite with the following command:
+
+```bash
+yarn test
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
