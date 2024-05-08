@@ -1,0 +1,7 @@
+services:
+  post-graph:
+    container_name: post_graph_app
+    build: .
+    image: post_graph_app:latest
+    ports:
+      - '3000:3000'
