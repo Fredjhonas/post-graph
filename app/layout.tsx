@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { AppQueryClientProvider } from '@/components/AppQueryClientProvider';
+import NavBar from '@/components/NavBar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,12 @@ export default function RootLayout({
   return (
     <AppQueryClientProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <main className="flex min-h-screen flex-col items-center container ml-auto mr-auto">
+            <NavBar />
+            {children}
+          </main>
+        </body>
       </html>
     </AppQueryClientProvider>
   );

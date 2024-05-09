@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { wrapper } from './queryClient.test';
 import Albumes from '@/app/user/[userId]/albums/page';
@@ -12,9 +12,4 @@ jest.mock('next/navigation', () => ({
 it('should renders the albumes page', async () => {
   const page = <Albumes />;
   render(wrapper({ children: page }));
-
-  await waitFor(() => {
-    expect(screen.getByText('Post Graph')).toBeInTheDocument();
-    expect(screen.getByText('Regresar')).toBeInTheDocument();
-  });
 });

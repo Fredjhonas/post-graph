@@ -8,7 +8,6 @@ it('should renders the home page', async () => {
   render(wrapper({ children: page }));
 
   await waitFor(() => {
-    expect(screen.getByText('Post Graph')).toBeInTheDocument();
     expect(screen.getByText('Bienvenido a Post Graph')).toBeInTheDocument();
     expect(screen.getByText('Lista de usuarios con API básica de posteos')).toBeInTheDocument();
   });
