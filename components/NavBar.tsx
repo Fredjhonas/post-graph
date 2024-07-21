@@ -1,7 +1,7 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 type Props = {};
 
@@ -14,16 +14,18 @@ export default function NavBar({}: Props) {
   };
 
   return (
-    <nav className="flex items-center justify-between w-screen p-4 bg-gray-800 text-white">
-      <Link href={'/'}>
-        <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
-      </Link>
-
-      {pathname !== '/' && (
-        <Link href="" role="button" className="text-white mr-6" onClick={goBack}>
-          Regresar
+    <nav className=" bg-blue-950 pb-2 w-screen">
+      <div className="flex items-center justify-between p-4 text-white bg-blue-950 shadow-xl shadow-blue-200 rounded-md">
+        <Link href={'/'}>
+          <h1 className="text-2xl font-bold ml-6">Post Graph</h1>
         </Link>
-      )}
+
+        {pathname !== '/' && (
+          <Link href="" role="button" className="text-white mr-6" onClick={goBack}>
+            Regresar
+          </Link>
+        )}
+      </div>
     </nav>
   );
 }

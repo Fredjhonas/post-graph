@@ -10,7 +10,7 @@ const UserItem = ({ user }: Props) => {
   const avatarDefault =
     'https://gravatar.com/avatar/058b0d8906db4e28dc5de8cdb01781de?s=400&d=identicon&r=x';
   return (
-    <li className="sm:flex sm:flex-row justify-between gap-x-6 py-5">
+    <li className="sm:flex sm:flex-row justify-between gap-x-6 py-6">
       <div className="flex min-w-0 gap-x-4 mb-4">
         <Image
           className="h-12 w-12 flex-none rounded-full bg-gray-50"
@@ -23,10 +23,10 @@ const UserItem = ({ user }: Props) => {
           <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
           <p className="mt-1 truncate text-xs leading-5 text-gray-500">
             {' '}
-            <span className="font-semibold">Email:</span> {user.email}
+            <span className="font-semibold">Correo:</span> {user.email}
           </p>
           <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-            <span className="font-semibold">Website:</span> {user.website}
+            <span className="font-semibold">Sitio web:</span> {user.website}
           </p>
           <div className="mt-1 flex items-center gap-x-1.5">
             <div className="flex-none rounded-full bg-emerald-500/20 p-1">
@@ -49,7 +49,7 @@ const UserItem = ({ user }: Props) => {
         </p>
         <div className="mt-1 flex gap-x-6 items-center">
           <Link href={`/user/${user.id}/albums`}>
-            <button className="mt-2 text-sm leading-5 text-blue-600 hover:text-blue-500 bg-blue-100 hover:bg-blue-50 px-2 py-1 rounded-md">
+            <button className="mt-2 text-sm text-blue-600 hover:text-blue-500 bg-blue-100 hover:bg-blue-50 px-4 py-2 rounded-md">
               Ver álbumes
             </button>
           </Link>
